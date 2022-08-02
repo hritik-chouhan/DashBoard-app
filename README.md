@@ -3,7 +3,8 @@
 A Flutter based car dashboard application.
 Some changes to be done in UI at time of integration with Kuksa-server.
 
-![dashboard_app-ui](https://user-images.githubusercontent.com/76897843/179748266-60494149-ff35-4cf3-942b-13a1a9b22a93.png)
+![dashboard](https://user-images.githubusercontent.com/76897843/182377017-273f81f2-df75-43dc-b3a7-7f4e51d6ed17.png)
+
 
 
 
