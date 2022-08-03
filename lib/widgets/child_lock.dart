@@ -1,3 +1,4 @@
+import 'package:dashboard_app/size.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
@@ -13,55 +14,52 @@ class ChildLockStatus extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-        top: 390,
-        right: 450,
-        child: isChildLockActiveLeft && isChildLockActiveRight
-            ? Column(
-                children: const [
-                  Text(
-                    "Child Lock",
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.green),
-                  ),
-                  Text(
-                    "Activated",
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.green),
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Icon(
-                    Icons.lock,
-                    size: 15,
-                    color: Colors.green,
-                  ),
-                ],
-              )
-            : Column(
-                children: const [
-                  Text(
-                    'No child  Lock',
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.redAccent,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Icon(
-                    Icons.lock_open_outlined,
-                    size: 15,
-                    color: Colors.red,
-                  ),
-                ],
-              ));
+    return isChildLockActiveLeft && isChildLockActiveRight
+        ? Column(
+            children: [
+              Text(
+                "Child Lock",
+                style: TextStyle(
+                    fontSize: SizeConfig.fontsize / 3,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.green),
+              ),
+              Text(
+                "Activated",
+                style: TextStyle(
+                    fontSize: SizeConfig.fontsize / 3,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.green),
+              ),
+              SizedBox(
+                width: SizeConfig.safeBlockVertical / 2,
+              ),
+              Icon(
+                Icons.lock,
+                size: SizeConfig.fontsize / 4,
+                color: Colors.green,
+              ),
+            ],
+          )
+        : Column(
+            children: [
+              Text(
+                'No child  Lock',
+                style: TextStyle(
+                  fontSize: SizeConfig.fontsize / 3,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.redAccent,
+                ),
+              ),
+              SizedBox(
+                height: SizeConfig.safeBlockVertical / 2,
+              ),
+              Icon(
+                Icons.lock_open_outlined,
+                size: SizeConfig.fontsize / 4,
+                color: Colors.red,
+              ),
+            ],
+          );
   }
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:latlng/latlng.dart';
 
 import '../Kuksa-server/vehicle_config.dart';
+import '../size.dart';
 
 class date_time extends StatelessWidget {
   DateTime now;
@@ -36,19 +37,19 @@ class date_time extends StatelessWidget {
         : minute.toString();
 
     return Positioned(
-        top: height / 36,
-        left: width / 40,
-        right: width / 40,
+        top: SizeConfig.safeBlockVertical * 2,
+        left: SizeConfig.safeBlockHorizontal * 2,
+        right: SizeConfig.safeBlockHorizontal * 2,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(calendar[now.month] + "  " + now.day.toString(),
-                style: normalfont),
+                style: SizeConfig.normalfont),
             Text(
               now.hour > 12
                   ? _hour + ':' + _minute + ' PM'
                   : _hour + ':' + _minute + ' AM',
-              style: normalfont,
+              style: SizeConfig.normalfont,
             ),
           ],
         ));
@@ -62,8 +63,8 @@ class CurrentLocation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: 50,
-      right: 50,
+      top: SizeConfig.safeBlockVertical * 8,
+      right: SizeConfig.safeBlockHorizontal * 3,
       child: FutureBuilder(
         future: getAdress(pos),
         builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
@@ -86,14 +87,14 @@ class CurrentLocation extends StatelessWidget {
                   data['features'].length == 0
                       ? 'No location defined'
                       : data['features'][0]['place_name'],
-                  style: smallnormalfont,
+                  style: SizeConfig.smallnormalfont,
                 ),
               );
             }
           }
           return Text(
             'Loading to fetch location',
-            style: smallnormalfont,
+            style: SizeConfig.smallnormalfont,
           );
         },
       ),

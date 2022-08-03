@@ -22,9 +22,9 @@ class SpeedAndFuel extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           CircularPercentIndicator(
-            radius: 60,
+            radius: SizeConfig.fontsize * 1.6,
             percent: fuel / 100,
-            lineWidth: 20,
+            lineWidth: SizeConfig.fontsize / 2,
             // linearGradient: LinearGradient(colors: [Colors.redAccent,Colors.orangeAccent,Colors.lightGreenAccent,Colors.lightGreenAccent],
             // stops: [0.1,0.3,0.6,1],
             //   begin: Alignment(1,0),
@@ -40,25 +40,18 @@ class SpeedAndFuel extends StatelessWidget {
             circularStrokeCap: CircularStrokeCap.round,
             animateFromLastPercent: true,
             center: Text(
-              fuel.toString(),
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.white54,
-              ),
+              fuel.toString() + ' %',
+              style: SizeConfig.smallnormalfont,
             ),
-            footer: const Text(
+            footer: Text(
               'fuel',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.greenAccent,
-                fontSize: 25,
-              ),
+              style: SizeConfig.smallnormalfont,
             ),
           ),
           CircularPercentIndicator(
-            radius: 60,
+            radius: SizeConfig.fontsize * 1.6,
             percent: speed / 300,
-            lineWidth: 20,
+            lineWidth: SizeConfig.fontsize / 2,
             backgroundColor: Colors.purpleAccent.shade100,
             progressColor: Colors.purple,
             animation: true,
@@ -66,18 +59,11 @@ class SpeedAndFuel extends StatelessWidget {
             animateFromLastPercent: true,
             center: Text(
               speed.toString(),
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.white54,
-              ),
+              style: SizeConfig.smallnormalfont,
             ),
-            footer: const Text(
-              'Speed',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Colors.greenAccent,
-                fontSize: 25,
-              ),
+            footer: Text(
+              'Speed in KM/H',
+              style: SizeConfig.smallnormalfont,
             ),
           ),
         ],
@@ -93,25 +79,34 @@ class Rpm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: SizeConfig.safeBlockVertical * 15,
+      height: SizeConfig.safeBlockVertical * 10,
       width: SizeConfig.blockSizeHorizontal * 35,
-      child: LinearPercentIndicator(
-        backgroundColor: Colors.white70,
-        addAutomaticKeepAlive: true,
-        progressColor: Colors.lightBlueAccent,
-        animateFromLastPercent: true,
-        animation: true,
-        animationDuration: 500,
-        percent: rpm / 8000,
-        barRadius: Radius.circular(15),
-        leading: Text(
-          'RPM',
-          style: normalfont,
-        ),
-        trailing: Text(
-          rpm.toString(),
-          style: smallnormalfont,
-        ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Engine Status",
+            style: SizeConfig.smallnormalfont,
+          ),
+          LinearPercentIndicator(
+            backgroundColor: Colors.white70,
+            addAutomaticKeepAlive: true,
+            progressColor: Colors.lightBlueAccent,
+            animateFromLastPercent: true,
+            animation: true,
+            animationDuration: 500,
+            percent: rpm / 8000,
+            barRadius: Radius.circular(15),
+            leading: Text(
+              'RPM',
+              style: SizeConfig.normalfont,
+            ),
+            trailing: Text(
+              rpm.toString(),
+              style: SizeConfig.smallnormalfont,
+            ),
+          ),
+        ],
       ),
     );
   }

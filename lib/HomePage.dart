@@ -48,117 +48,141 @@ class _HomePageState extends ConsumerState<HomePage> {
           ),
           CurrentLocation(pos: pos),
           date_time(now: _now),
+
+          // Positioned(
+          //     top: 390,
+          //     right: 350,
+          //     child: RotatedBox(
+          //       quarterTurns: 2,
+          //       child: Container(
+          //         height: 50,
+          //         width: 100,
+          //         child: CustomPaint(
+          //           painter: simplearrow(),
+          //         ),
+          //       ),
+          //     )),
+
           Positioned(
-              top: 190,
-              right: 50,
-              child: Container(
-                height: 100,
-                width: 130,
-                child: CustomPaint(
-                  painter: Arrowpaint(),
+            right: SizeConfig.safeBlockHorizontal * 41,
+            top: SizeConfig.safeBlockVertical * 58,
+            child: ChildLockStatus(
+                isChildLockActiveLeft: vehicle.isChildLockActiveLeft,
+                isChildLockActiveRight: vehicle.isChildLockActiveRight),
+          ),
+          Positioned(
+            top: SizeConfig.safeBlockVertical * 20,
+            right: SizeConfig.blockSizeHorizontal * 13,
+            bottom: SizeConfig.blockSizeVertical * 20,
+            child: SizedBox(
+              height: SizeConfig.screenHeight * 0.6,
+              width: SizeConfig.screenWidth * 0.30,
+              child: AnimatedContainer(
+                duration: Duration(milliseconds: 10),
+                child: Image.asset('images/car_img.png'),
+              ),
+            ),
+          ),
+          Positioned(
+            top: SizeConfig.safeBlockVertical * 18,
+            right: SizeConfig.safeBlockHorizontal * 38,
+            child: Column(
+              // crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                TierPressure(
+                    tname: 'L Front Tier', tpress: vehicle.frontLeftTP),
+                Container(
+                  height: SizeConfig.safeBlockVertical * 10,
+                  width: SizeConfig.safeBlockHorizontal * 12,
+                  child: CustomPaint(
+                    painter: Arrowpaint2(),
+                  ),
+                )
+              ],
+            ),
+          ),
+          Positioned(
+            top: SizeConfig.safeBlockVertical * 65,
+            right: SizeConfig.safeBlockHorizontal * 38,
+            child: Column(
+              // crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                RotatedBox(
+                  quarterTurns: 2,
+                  child: Container(
+                    height: SizeConfig.safeBlockVertical * 10,
+                    width: SizeConfig.safeBlockHorizontal * 12,
+                    child: CustomPaint(
+                      painter: Arrowpaint(),
+                    ),
+                  ),
                 ),
-              )),
+                TierPressure(tname: 'L Rear Tier', tpress: vehicle.rearLeftTP),
+              ],
+            ),
+          ),
           Positioned(
-              top: 190,
-              right: 350,
-              child: Container(
-                height: 100,
-                width: 130,
-                child: CustomPaint(
-                  painter: Arrowpaint2(),
-                ),
-              )),
-          Positioned(
-              top: 500,
-              right: 350,
-              child: RotatedBox(
-                quarterTurns: 2,
-                child: Container(
-                  height: 100,
-                  width: 130,
+            top: SizeConfig.safeBlockVertical * 18,
+            right: SizeConfig.safeBlockHorizontal * 7,
+            child: Column(
+              children: [
+                TierPressure(
+                    tname: 'R Front Tier', tpress: vehicle.frontRightTP),
+                Container(
+                  height: SizeConfig.safeBlockVertical * 10,
+                  width: SizeConfig.safeBlockHorizontal * 12,
                   child: CustomPaint(
                     painter: Arrowpaint(),
                   ),
                 ),
-              )),
+              ],
+            ),
+          ),
           Positioned(
-              top: 500,
-              right: 50,
-              child: RotatedBox(
-                quarterTurns: 2,
-                child: Container(
-                  height: 100,
-                  width: 130,
-                  child: CustomPaint(
-                    painter: Arrowpaint2(),
+            top: SizeConfig.safeBlockVertical * 65,
+            right: SizeConfig.safeBlockHorizontal * 7,
+            child: Column(
+              children: [
+                RotatedBox(
+                  quarterTurns: 2,
+                  child: Container(
+                    height: SizeConfig.safeBlockVertical * 10,
+                    width: SizeConfig.safeBlockHorizontal * 12,
+                    child: CustomPaint(
+                      painter: Arrowpaint2(),
+                    ),
                   ),
                 ),
-              )),
-          Positioned(
-            top: 130,
-            right: 350,
-            child: TierPressure(
-                tname: 'L Front Tier', tpress: vehicle.frontLeftTP),
-          ),
-          Positioned(
-            top: 600,
-            right: 350,
-            child:
-                TierPressure(tname: 'L Rear Tier', tpress: vehicle.rearLeftTP),
-          ),
-          Positioned(
-            top: 130,
-            right: 0,
-            child: TierPressure(
-                tname: 'R Front Tier', tpress: vehicle.frontRightTP),
-          ),
-          Positioned(
-            top: 600,
-            right: 0,
-            child:
                 TierPressure(tname: 'R Rear Tier', tpress: vehicle.rearRightTP),
+              ],
+            ),
           ),
+
           Positioned(
-              top: 390,
-              right: 350,
-              child: RotatedBox(
-                quarterTurns: 2,
-                child: Container(
-                  height: 50,
-                  width: 100,
-                  child: CustomPaint(
-                    painter: simplearrow(),
-                  ),
-                ),
-              )),
-          Positioned(
-              bottom: height / 15,
-              right: width / 17,
-              child: SizedBox(
-                height: height * 0.7,
-                width: width * 0.4,
-                child: AnimatedContainer(
-                  duration: Duration(milliseconds: 10),
-                  child: Image.asset('images/car_img.png'),
-                ),
-              )),
-          ChildLockStatus(
-              isChildLockActiveLeft: vehicle.isChildLockActiveLeft,
-              isChildLockActiveRight: vehicle.isChildLockActiveRight),
-          Positioned(
-              top: 100,
-              left: 50,
+              top: SizeConfig.safeBlockVertical * 7,
+              left: SizeConfig.safeBlockHorizontal * 2,
+              bottom: SizeConfig.safeBlockVertical * 4,
               child: Container(
-                width: width / 2,
-                height: height * 0.75,
+                width: SizeConfig.screenWidth / 2,
+                height: SizeConfig.screenHeight * 0.75,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Rpm(rpm: vehicle.rpm),
-                    Text(
-                      vehicle.fuelRate.toString() + 'KM/Litre',
-                      style: smallnormalfont,
+
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Avg. Fuel Consumtion',
+                          style: SizeConfig.smallnormalfont,
+                        ),
+                        Text(
+                          vehicle.fuelRate.toString() + ' KM/Litre',
+                          style: SizeConfig.smallnormalfont,
+                        ),
+                      ],
                     ),
                     // ignore: prefer_const_constructors
                     weather(),

@@ -12,7 +12,7 @@ class weather extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(SizeConfig.safeBlockVertical * 2),
         color: Colors.black38,
       ),
       height: SizeConfig.safeBlockVertical * 30,
@@ -26,8 +26,8 @@ class weather extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  'Wheather',
-                  style: smallnormalfont,
+                  'Weather',
+                  style: SizeConfig.normalfont,
                   textAlign: TextAlign.left,
                 ),
               )),
@@ -46,29 +46,20 @@ class weather extends StatelessWidget {
                           color: Colors.orangeAccent,
                         )),
                     SizedBox(
-                      height: 10,
+                      height: SizeConfig.safeBlockVertical,
                     ),
-                    Text('23 \u00B0', style: smallnormalfont),
-                    Text(
-                      'Inside Car',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.white,
-                      ),
-                    ),
+                    Text('23 \u00B0', style: SizeConfig.smallnormalfont),
+                    Text('Inside Car', style: SizeConfig.smallnormalfont),
                     SizedBox(
-                      height: 20,
+                      height: SizeConfig.safeBlockVertical,
                     ),
                     Text(
                       ' 25 \u00B0',
-                      style: smallnormalfont,
+                      style: SizeConfig.smallnormalfont,
                     ),
                     Text(
                       'Outside car',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.white,
-                      ),
+                      style: SizeConfig.smallnormalfont,
                     ),
                   ],
                 ),
@@ -82,32 +73,26 @@ class weather extends StatelessWidget {
                           color: Colors.orangeAccent,
                         )),
                     SizedBox(
-                      height: 10,
+                      height: SizeConfig.safeBlockVertical,
                     ),
                     Text(
                       'SUNNY',
-                      style: smallnormalfont,
+                      style: SizeConfig.smallnormalfont,
                     ),
                     Text(
                       'wheather',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.white,
-                      ),
+                      style: SizeConfig.smallnormalfont,
                     ),
                     SizedBox(
-                      height: 20,
+                      height: SizeConfig.safeBlockVertical,
                     ),
                     Text(
                       '6 KM/H',
-                      style: smallnormalfont,
+                      style: SizeConfig.smallnormalfont,
                     ),
                     Text(
                       'Wind speed',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.white,
-                      ),
+                      style: SizeConfig.smallnormalfont,
                     ),
                   ],
                 ),

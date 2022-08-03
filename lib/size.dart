@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class SizeConfig {
@@ -11,6 +12,8 @@ class SizeConfig {
   static late double safeBlockHorizontal;
   static late double safeBlockVertical;
   static late double fontsize;
+  static late TextStyle normalfont;
+  static late TextStyle smallnormalfont;
 
   void init(BuildContext context) {
     _mediaQueryData = MediaQuery.of(context);
@@ -25,5 +28,16 @@ class SizeConfig {
     safeBlockHorizontal = (screenWidth - _safeAreaHorizontal) / 100;
     safeBlockVertical = (screenHeight - _safeAreaVertical) / 100;
     fontsize = screenHeight * screenWidth * 0.01 * 0.01 * 0.5;
+    print(fontsize);
+    normalfont = TextStyle(
+      fontSize: fontsize * 0.8,
+      fontWeight: FontWeight.w700,
+      color: Colors.white,
+    );
+    smallnormalfont = TextStyle(
+      fontSize: fontsize / 2,
+      fontWeight: FontWeight.w700,
+      color: Colors.white,
+    );
   }
 }
