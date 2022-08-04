@@ -185,7 +185,10 @@ class _HomePageState extends ConsumerState<HomePage> {
                       ],
                     ),
                     // ignore: prefer_const_constructors
-                    weather(),
+                    weather(
+                      insideTemperatue: vehicle.insideTemperature,
+                      outsideTempearure: vehicle.outsideTemperature,
+                    ),
                     SpeedAndFuel(fuel: vehicle.fuelLevel, speed: vehicle.speed),
                   ],
                 ),
