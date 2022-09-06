@@ -1,4 +1,4 @@
-import 'package:dashboard_app/font.dart';
+
 import 'package:flutter/material.dart';
 import 'package:latlng/latlng.dart';
 
@@ -25,8 +25,7 @@ class date_time extends StatelessWidget {
       11: 'Nov',
       12: 'Dec'
     };
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
+
 
     int hour = now.hour > 12 ? now.hour - 12 : now.hour;
     String _hour =
@@ -35,20 +34,18 @@ class date_time extends StatelessWidget {
     String _minute = minute.toString().length == 1
         ? '0' + minute.toString()
         : minute.toString();
-    // top: SizeConfig.safeBlockVertical * 2,
-    // left: SizeConfig.safeBlockHorizontal * 2,
-    // right: SizeConfig.safeBlockHorizontal * 2,
+
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(calendar[now.month] + "  " + now.day.toString(),
-            style: SizeConfig.normalfont),
+            style: SizeConfig.smallnormalfont),
         Text(
           now.hour > 12
               ? _hour + ':' + _minute + ' PM'
               : _hour + ':' + _minute + ' AM',
-          style: SizeConfig.normalfont,
+          style: SizeConfig.smallnormalfont,
         ),
       ],
     );
@@ -82,7 +79,7 @@ class CurrentLocation extends StatelessWidget {
               data['features'].length == 0
                   ? 'No location defined'
                   : data['features'][0]['place_name'],
-              style: SizeConfig.normalfont,
+              style: SizeConfig.smallnormalfont2,
             );
           }
         }

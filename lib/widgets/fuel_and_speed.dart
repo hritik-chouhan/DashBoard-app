@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
-import '../font.dart';
+
 
 class SpeedAndFuel extends StatelessWidget {
   double fuel;
@@ -17,19 +17,15 @@ class SpeedAndFuel extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     return SizedBox(
-      width: width * 0.5,
+      width: width * 0.4,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           CircularPercentIndicator(
-            radius: SizeConfig.fontsize * 2,
+            radius: SizeConfig.fontsize * 1.6,
             percent: fuel / 100,
             lineWidth: SizeConfig.fontsize / 2,
-            // linearGradient: LinearGradient(colors: [Colors.redAccent,Colors.orangeAccent,Colors.lightGreenAccent,Colors.lightGreenAccent],
-            // stops: [0.1,0.3,0.6,1],
-            //   begin: Alignment(1,0),
-            //   end: Alignment(0,1),
-            // ),
+
             backgroundColor: Colors.lightBlue.shade100,
             progressColor: fuel < 25
                 ? Colors.redAccent
@@ -41,15 +37,15 @@ class SpeedAndFuel extends StatelessWidget {
             animateFromLastPercent: true,
             center: Text(
               fuel.toString() + ' %',
-              style: SizeConfig.normalfont,
+              style: SizeConfig.smallnormalfont,
             ),
             footer: Text(
               'fuel',
-              style: SizeConfig.normalfont,
+              style: SizeConfig.smallnormalfont2,
             ),
           ),
           CircularPercentIndicator(
-            radius: SizeConfig.fontsize * 2,
+            radius: SizeConfig.fontsize * 1.6,
             percent: speed / 300,
             lineWidth: SizeConfig.fontsize / 2,
             backgroundColor: Color.fromARGB(255, 176, 213, 195),
@@ -59,11 +55,11 @@ class SpeedAndFuel extends StatelessWidget {
             animateFromLastPercent: true,
             center: Text(
               speed.toString(),
-              style: SizeConfig.normalfont,
+              style: SizeConfig.smallnormalfont,
             ),
             footer: Text(
               'Speed in KM/H',
-              style: SizeConfig.normalfont,
+              style: SizeConfig.smallnormalfont2,
             ),
           ),
         ],
@@ -80,14 +76,14 @@ class Rpm extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: SizeConfig.safeBlockVertical * 9,
-      width: SizeConfig.blockSizeHorizontal * 35,
+      width: SizeConfig.safeBlockHorizontal * 35,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Text(
             "Engine Status",
-            style: SizeConfig.normalfont,
+            style: SizeConfig.smallnormalfont2,
           ),
           LinearPercentIndicator(
             backgroundColor: Colors.white70,
@@ -100,11 +96,11 @@ class Rpm extends StatelessWidget {
             barRadius: Radius.circular(15),
             leading: Text(
               'RPM',
-              style: SizeConfig.normalfont,
+              style: SizeConfig.smallnormalfont,
             ),
             trailing: Text(
               rpm.toString(),
-              style: SizeConfig.normalfont,
+              style: SizeConfig.smallnormalfont2,
             ),
           ),
         ],
